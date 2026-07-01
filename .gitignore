@@ -1,0 +1,11 @@
+# Godot 4 cache
+.godot/
+
+# Mono / .NET build artifacts
+.mono/
+data_*/
+mono_crash.*.json
+bin/
+obj/
+
+.idea/
