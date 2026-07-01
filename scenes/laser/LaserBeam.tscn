@@ -1,0 +1,11 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/laser/LaserBeam.cs" id="1_lb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1"]
+
+[node name="LaserBeam" type="Node3D"]
+script = ExtResource("1_lb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_1")

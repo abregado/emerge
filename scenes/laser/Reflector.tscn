@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://bodies/Reflector.cs" id="1_ref"]
+[ext_resource type="Script" path="res://bodies/components/Hoverable.cs" id="2_hov"]
+[ext_resource type="Script" path="res://bodies/components/ReflectionPoint.cs" id="3_rp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.9, 1.0, 0.9)
+
+[node name="Reflector" type="StaticBody3D"]
+script = ExtResource("1_ref")
+collision_layer = 3
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.5, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Hoverable" type="Node" parent="."]
+script = ExtResource("2_hov")
+
+[node name="View" type="Node3D" parent="."]
+
+[node name="ReflectionPoint_WN" type="Node3D" parent="."]
+script = ExtResource("3_rp")
+InputDir = 3
+OutputDir = 0
+
+[node name="ReflectionPoint_SE" type="Node3D" parent="."]
+script = ExtResource("3_rp")
+InputDir = 2
+OutputDir = 1

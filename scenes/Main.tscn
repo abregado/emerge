@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cyk6ier7kue5r"]
+
+[ext_resource type="Script" uid="uid://do12f2sq52xlj" path="res://scenes/Main.cs" id="1_main"]
+[ext_resource type="Resource" uid="uid://byhxy07gdp2dh" path="res://resources/Res.tres" id="2_rvslj"]
+[ext_resource type="Script" uid="uid://b8x1runk6p0gc" path="res://scenes/LevelLoader.cs" id="3_loader"]
+[ext_resource type="Script" uid="uid://clpdxjh1j8nlu" path="res://scenes/TileDebugVisualiser.cs" id="4_vis"]
+[ext_resource type="Script" uid="uid://br2v3yo0fw23a" path="res://scenes/PlayerCamera.cs" id="5_pcam"]
+[ext_resource type="Script" uid="uid://bkxk6awugl388" path="res://scenes/PlayerManager.cs" id="6_pmgr"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="7_pscn"]
+
+[node name="Main" type="Node3D" unique_id=1723534963]
+script = ExtResource("1_main")
+_res = ExtResource("2_rvslj")
+
+[node name="World" type="Node3D" parent="." unique_id=2068118725]
+
+[node name="LevelLoader" type="Node3D" parent="World" unique_id=2048853780]
+script = ExtResource("3_loader")
+LevelRootPath = NodePath("../LevelRoot")
+
+[node name="LevelRoot" type="Node3D" parent="World" unique_id=954553980]
+
+[node name="TileDebugVisualiser" type="Node3D" parent="World/LevelRoot" unique_id=1898837176]
+script = ExtResource("4_vis")
+
+[node name="Players" type="Node3D" parent="World" unique_id=246152429]
+
+[node name="PlayerCamera" type="Camera3D" parent="World" unique_id=224788403]
+script = ExtResource("5_pcam")
+
+[node name="Sun" type="DirectionalLight3D" parent="World" unique_id=1442334922]
+transform = Transform3D(1, 0, 0, 0, -0.707, -0.707, 0, 0.707, -0.707, 0, 10, 0)
+light_energy = 1.2
+
+[node name="PlayerManager" type="Node3D" parent="." unique_id=549961469]
+script = ExtResource("6_pmgr")
+PlayerScene = ExtResource("7_pscn")
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=845108036]
+
+[node name="HUD" type="Control" parent="GUI" unique_id=674371573]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="DialogLayer" type="Control" parent="GUI" unique_id=1659861048]
+layout_mode = 3
+anchors_preset = 0

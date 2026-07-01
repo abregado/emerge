@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/player/Player.cs" id="1_ps"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
+height = 1.8
+radius = 0.3
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1"]
+height = 1.8
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1"]
+radius = 0.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_ps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_1")
+
+[node name="View" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="View"]
+position = Vector3(0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_1")
+
+[node name="HandSlot" type="Node3D" parent="."]
+position = Vector3(0, 0.9, -0.4)
+
+[node name="InteractProbe" type="Area3D" parent="."]
+position = Vector3(0, 0.9, -0.6)
+monitoring = true
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractProbe"]
+shape = SubResource("SphereShape3D_1")

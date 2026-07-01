@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Res" format=3 uid="uid://byhxy07gdp2dh"]
+
+[ext_resource type="Script" uid="uid://d3l4o28ywphd0" path="res://resources/Res.cs" id="1_res"]
+[ext_resource type="PackedScene" path="res://scenes/laser/EmitterAlien.tscn" id="2_emitter"]
+[ext_resource type="PackedScene" path="res://scenes/laser/LaserTarget.tscn" id="3_target"]
+
+[resource]
+script = ExtResource("1_res")
+BodyScenes = Dictionary[String, PackedScene]({
+"EmitterAlien": ExtResource("2_emitter"),
+"LaserTarget": ExtResource("3_target")
+})
